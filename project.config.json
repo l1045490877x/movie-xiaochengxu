@@ -6,7 +6,10 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"nodeModules": false,
+		"autoAudits": false,
+		"checkInvalidKey": true
 	},
 	"appid": "wx264c33d13533030b",
 	"projectname": "miniprogram-test-2",

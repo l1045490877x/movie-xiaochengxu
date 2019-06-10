@@ -8,6 +8,19 @@ Page({
   data: {
 
   },
+  sum(){
+    wx.cloud.callFunction({
+      name:'sum',//云函数名字
+      data:{
+        a:2,
+        b:3,
+      },
+    }).then( res => {
+      console.log(res.result.sum);
+    }).catch( err => {
+      console.log( err )
+    })
+  },
   insert:function(){
     db.collection('user').add(
       //回掉处理数据
@@ -25,8 +38,8 @@ Page({
         //then方法处理
         {
           data: {
-            name:'lisan',
-            age:100
+            name:'jerry',
+            age:25
             }
         }).then(res => {
           console.log(res)
@@ -37,17 +50,30 @@ Page({
       
       
   },
-  update:function(){
+  // update:function(){
+  //   db.collection('user').doc('dec80a9e5cfdfd2a02f969ee299112b8').update({
+  //     data:{
+  //       age:112
+  //     }
+  //   }).then(res => {
+  //     console.log(res)
+  //   }).catch( err => {
+  //     console.log(err)
+  //   })
+  // },
+
+  update: function () {
     db.collection('user').doc().update({
-      data:{
-        age:21
+      data: {
+        name: 'kangbazi'
       }
     }).then(res => {
       console.log(res)
-    }).catch( err => {
+    }).catch(err => {
       console.log(err)
     })
   },
+
   search:function(){
     db.collection('user').where({
       name:"jerry"
@@ -57,11 +83,12 @@ Page({
       console.log(err)
     });
   },
-  delete:function(){
-    db.collection('user').doc().remove({
-      data:{
 
-      }
+  delete() {
+    db.collection('user').doc('cbdb4c165cfe3aa8031c8b6952a6293c').remove().then(res => {
+      console.log(res)
+    }).catch(err => {
+      console.log(err)
     })
   },
   /**
