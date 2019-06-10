@@ -1,0 +1,16 @@
+<!--pages/base/base.wxml-->
+<view>{{msg}}</view>
+<view wx:for="{{arr}}" wx:key="{{index}}">
+  {{index}} {{item}}
+</view>
+<view wx:for="{{stu}}" wx:key="{{index}}">
+ 第{{index+1}}位:{{item.name}} {{item.age}} {{item.sex}}
+</view>
+<view wx:if="{{a}}">
+  hidden
+</view>
+<view wx:else="{{!a}}">
+  请登录
+</view>
+<button bindtap='tap' data-id='12134'>点我+1</button>
+<view>{{number}}</view>
